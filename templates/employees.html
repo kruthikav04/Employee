@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Employees</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1>Employee Management</h1>
+
+<!-- Add Employee Form -->
+<h2>Add Employee</h2>
+
+<form method="POST" action="/add_employee">
+
+<label>Name:</label>
+<input type="text" name="emp_name" required>
+
+<label>Team:</label>
+<input type="text" name="team" required>
+
+<label>Date of Joining:</label>
+<input type="date" name="date_of_joining" required>
+
+<br><br>
+
+<button type="submit">Add Employee</button>
+
+</form>
+
+<br><br>
+
+<!-- Employee List Table -->
+
+<h2>Employee List</h2>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Team</th>
+<th>Date of Joining</th>
+</tr>
+
+{% for emp in employees %}
+
+<tr>
+<td>{{ emp.emp_id }}</td>
+<td>{{ emp.emp_name }}</td>
+<td>{{ emp.team }}</td>
+<td>{{ emp.date_of_joining }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back</a>
+
+</body>
+</html>
