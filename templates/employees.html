@@ -8,41 +8,35 @@
 
 <body>
 
-<h1>Employee Management</h1>
-
-<!-- Add Employee Form -->
 <h2>Add Employee</h2>
 
 <form method="POST" action="/add_employee">
 
-<label>Name:</label>
+Name:
 <input type="text" name="emp_name" required>
 
-<label>Team:</label>
+Team:
 <input type="text" name="team" required>
 
-<label>Date of Joining:</label>
+Date of Joining:
 <input type="date" name="date_of_joining" required>
-
-<br><br>
 
 <button type="submit">Add Employee</button>
 
 </form>
 
-<br><br>
-
-<!-- Employee List Table -->
+<br>
 
 <h2>Employee List</h2>
 
-<table border="1">
+<table>
 
 <tr>
 <th>ID</th>
 <th>Name</th>
 <th>Team</th>
 <th>Date of Joining</th>
+<th>Actions</th>
 </tr>
 
 {% for emp in employees %}
@@ -52,6 +46,17 @@
 <td>{{ emp.emp_name }}</td>
 <td>{{ emp.team }}</td>
 <td>{{ emp.date_of_joining }}</td>
+
+<td>
+
+<a href="/edit/{{ emp.emp_id }}">Edit</a>
+
+<a href="/delete/{{ emp.emp_id }}" onclick="return confirm('Delete employee?')">
+Delete
+</a>
+
+</td>
+
 </tr>
 
 {% endfor %}
@@ -63,4 +68,5 @@
 <a href="/">Back</a>
 
 </body>
+
 </html>
