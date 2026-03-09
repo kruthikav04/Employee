@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Edit Employee</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h2>Edit Employee</h2>
+
+<form method="POST">
+
+Name:
+<input type="text" name="emp_name" value="{{ employee.emp_name }}" required>
+
+Team:
+<input type="text" name="team" value="{{ employee.team }}" required>
+
+Date of Joining:
+<input type="date" name="date_of_joining" value="{{ employee.date_of_joining }}" required>
+
+<button type="submit">Update Employee</button>
+
+</form>
+
+</body>
+
+</html>
